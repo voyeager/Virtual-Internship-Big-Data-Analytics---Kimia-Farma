@@ -33,12 +33,12 @@ CREATE ANALYTIC TABLE
   ft.price * (1 - ft.discount_percentage) AS nett_sales,
   (ft.price * (1 - ft.discount_percentage)) *
   CASE
-      WHEN p.price <= 50000 THEN 0.10
-      WHEN p.price BETWEEN 50000 AND 99999 THEN 0.15
-      WHEN p.price BETWEEN 100000 AND 299999 THEN 0.20
-      WHEN p.price BETWEEN 300000 AND 499999 THEN 0.25
-      ELSE 0.30
-    END AS nett_profit,
+    WHEN p.price <= 50000 THEN 0.10
+    WHEN p.price BETWEEN 50000 AND 99999 THEN 0.15
+    WHEN p.price BETWEEN 100000 AND 299999 THEN 0.20
+    WHEN p.price BETWEEN 300000 AND 499999 THEN 0.25
+    ELSE 0.30
+  END AS nett_profit,
   ft.rating as rating_transaksi
 FROM `kimia_farma.kf_final_transaction` AS ft
   LEFT JOIN `kimia_farma.kf_kantor_cabang` AS kc
